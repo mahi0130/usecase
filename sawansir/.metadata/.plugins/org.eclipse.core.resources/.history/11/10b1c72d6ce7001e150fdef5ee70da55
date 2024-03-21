@@ -1,0 +1,33 @@
+package in.co.rays.ctl;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import in.co.rays.dto.ProgressDTO;
+import in.co.rays.model.ProgressModel;
+
+public class ProgressListCtl extends HttpServlet{
+@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+	ProgressDTO dto = new ProgressDTO();
+	ProgressModel model = new ProgressModel();
+	List list = model.search(dto);
+	req.setAttribute("List", list);
+	RequestDispatcher rd = req.getRequestDispatcher("ProgressListView.jsp");
+	rd.forward(req, resp);
+	
+}
+
+
+@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+	}
+}

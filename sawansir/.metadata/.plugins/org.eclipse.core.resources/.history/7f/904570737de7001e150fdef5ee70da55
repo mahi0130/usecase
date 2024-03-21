@@ -1,0 +1,124 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="in.co.rays.dto.ProgressDTO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<h1>Dveloper Report</h1>
+	</center>
+	<%
+		ProgressDTO dto = new ProgressDTO();
+		List list = (List) request.getAttribute("List");
+		Iterator<ProgressDTO> it = list.iterator();
+	%>
+	<form action="ProgressListCtl" method="post">
+		<center>
+
+					
+			<!-- <label>developer name</label><input type="text" name="developername"> -->
+			
+			
+			
+			<label>dob</label><tr>
+				<td><select name="id">
+
+						<option>---Select---</option>
+						<%
+							Iterator it1 = list.iterator();
+
+							while (it1.hasNext()) {
+								ProgressDTO dto1 = (ProgressDTO) it1.next();
+						%>
+						<option value="<%=dto1.getId()%>"><%=dto1.getReportingDate()%></option>
+						<%
+							}
+						%>
+
+
+				</select></td>
+			</tr>
+			
+			<tr>
+				<td><input type="submit" name="operation" value="search"></td>
+			</tr>
+			<br> <br>
+
+
+
+
+
+			<%
+				String msg = (String) request.getAttribute("msg");
+			%>
+
+			<%-- <%=msg %> --%>
+			<table border="1" width="100%">
+				<tr>
+					<th>select</th>
+					<th>Id</th>
+					<th>DeveloperName</th>
+					<th>Work</th>
+					<th>ReportingDate</th>
+					<th>Target</th>
+					<th>LastWeek</th>
+					<th>CurrentWeek</th>
+					<th>Edit</th>
+
+				</tr>
+				<%
+					while (it.hasNext()) {
+						dto = (ProgressDTO) it.next();
+				%>
+
+				<tr>
+					<td><input type="checkbox" name="ids" value="<%=dto.getId()%>"></td>
+
+					<td><%=dto.getId()%></td>
+					<td><%=dto.getDeveloperName()%></td>
+					<td><%=dto.getWork()%></td>
+					<td><%=dto.getReportingDate()%></td>
+					<td><%=dto.getTarget()%></td>
+					<td><%=dto.getLastWeek()%></td>
+					<td><%=dto.getCurrentWeek()%></td>
+					<td><a href="ProgressCtl?id=<%=dto.getId()%>">edit</a></td>
+					<%
+						}
+					%>
+
+
+
+				</tr>
+
+
+			</table>
+
+
+
+			<tr>
+				<td><input type="submit" name="operation" value="delete"></td>
+
+			</tr>
+
+
+
+
+
+
+
+
+
+		</center>
+
+	</form>
+
+
+
+</body>
+</html>

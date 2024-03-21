@@ -1,0 +1,106 @@
+<%@page import="in.co.rays.dto.ProgressDTO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+		ProgressDTO dto = (ProgressDTO) request.getAttribute("dto");
+		String msg = (String) request.getAttribute("msg");
+	%>
+	<form action="ProgressCtl" method="post">
+		<center>
+			<%
+				if (dto != null) {
+			%>
+			<h1>Edit company</h1>
+			<%
+				} else {
+			%>
+			<h2>add Company</h2>
+			<%
+				}
+			%>
+			<%
+				if (msg != null) {
+			%>
+			<%=msg%>
+			<%
+				}
+			%>
+			<table>
+				<input type="hidden" name="id"
+					value="<%=(dto != null) ? dto.getId() : ""%>">
+				<tr>
+					<th>DeveloperName</th>
+					<td><input type="text" name="developername"
+						value="<%=(dto != null) ? dto.getDeveloperName() : ""%>"></td>
+				</tr>
+
+
+				<tr>
+					<th>work</th>
+					<td><input type="text" name="department"
+						value="<%=(dto != null) ? dto.getWork() : ""%>"></td>
+				</tr>
+
+				<tr>
+					<th>ReportingDate</th>
+					<td><input type="date" name="reportingdate"
+						value="<%=(dto != null) ? dto.getReportingDate() : ""%>"></td>
+				</tr>
+				
+				<tr>
+					<th>Target</th>
+					<td><input type="text" name="target"
+						value="<%=(dto != null) ? dto.getTarget() : ""%>"></td>
+				</tr>
+				
+				<tr>
+					<th>LastWeek</th>
+					<td><input type="text" name="lastweek"
+						value="<%=(dto != null) ? dto.getLastWeek() : ""%>"></td>
+				</tr>
+				<tr>
+					<th>CurrentWeek</th>
+					<td><input type="text" name="currentweek"
+						value="<%=(dto != null) ? dto.getCurrentWeek() : ""%>"></td>
+				</tr>
+				
+				
+				
+
+
+
+			</table>
+
+
+
+<% if( dto != null){ %>
+<tr> 
+<td><input type="submit" name="operation" value="update"></td>
+<td><input type="submit" name="operation" value="add"></td>
+	
+
+</tr>
+<%} else { %>
+<tr>
+<td> <input type="submit" name="operation" value="save"></td>
+<td> <input type="submit" name="operation" value="cancel"></td>
+
+</tr>
+<%} %>
+
+
+
+
+		</center>
+	</form>
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<%@page import="in.co.rays.dto.ProgressDTO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+		ProgressDTO dto = (ProgressDTO) request.getAttribute("dto");
+		String msg = (String) request.getAttribute("msg");
+	%>
+	<form action="ProgressCtl" method="post">
+		<center>
+			<%
+				if (dto != null) {
+			%>
+			<h1>Edit company</h1>
+			<%
+				} else {
+			%>
+			<h2>add Company</h2>
+			<%
+				}
+			%>
+			<%
+				if (msg != null) {
+			%>
+			<%=msg%>
+			<%
+				}
+			%>
+			<table>
+				<input type="hidden" name="id"
+					value="<%=(dto != null) ? dto.getId() : ""%>">
+				<tr>
+					<th>Name</th>
+					<td><input type="text" name="developername"
+						value="<%=(dto != null) ? dto.getDeveloperName() : ""%>"></td>
+				</tr>
+
+
+				<tr>
+					<th>Department</th>
+					<td><input type="text" name="department"
+						value="<%=(dto != null) ? dto.getDepartment() : ""%>"></td>
+				</tr>
+
+				<tr>
+					<th>Salary</th>
+					<td><input type="text" name="salary"
+						value="<%=(dto != null) ? dto.getSalary() : ""%>"></td>
+				</tr>
+
+
+
+			</table>
+
+
+<table>
+<% if( dto != null){ %>
+<tr> 
+<td><input type="submit" name="operation" value="update"></td>
+<td><input type="submit" name="operation" value="add"></td>
+	
+
+</tr>
+<%} else { %>
+<tr>
+<td> <input type="submit" name="operation" value="save"></td>
+<td> <input type="submit" name="operation" value="cancel"></td>
+
+</tr>
+<%} %>
+
+</table>
+
+
+		</center>
+	</form>
+
+
+</body>
+</html>

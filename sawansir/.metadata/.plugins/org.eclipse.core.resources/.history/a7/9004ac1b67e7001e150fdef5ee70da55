@@ -1,0 +1,17 @@
+package in.co.rays.dto;
+
+import java.util.Date;
+
+public class ProgressDTO {
+	private int id;
+	private String developerName ;
+	private String work;
+	private Date reportingDate;
+	private String target;
+	private String lastWeek;
+	private String currentWeek;
+	
+	
+	
+
+}

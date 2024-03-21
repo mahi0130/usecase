@@ -1,0 +1,20 @@
+
+Mar 21, 2024 16:18:56.24 NEW SESSION
+Mar 21, 2024 16:18:56.24 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Mar 21, 2024 16:21:18.15 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Mar 21, 2024 16:26:46.32 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Mar 21, 2024 16:54:02.75 [10452:13852:0321/165402.753:ERROR:interface_endpoint_client.cc(707)] Message 1 rejected by interface blink.mojom.WidgetHost
+Mar 21, 2024 16:56:30.52 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Mar 21, 2024 17:15:36.67 [7748:7504:0321/171536.676:ERROR:interface_endpoint_client.cc(707)] Message 1 rejected by interface blink.mojom.WidgetHost
+Mar 21, 2024 18:15:07.42 [7748:12420:0321/181507.426:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+Mar 21, 2024 18:15:24.39 [7748:12420:0321/181524.398:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+Mar 21, 2024 18:17:10.61 [7748:12420:0321/181710.613:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+Mar 21, 2024 18:17:38.52 [7748:12420:0321/181738.527:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+Mar 21, 2024 18:18:21.21 [7748:12420:0321/181821.219:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+Mar 21, 2024 18:19:45.56 [7748:12420:0321/181945.566:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+Mar 21, 2024 22:25:44.15 [7748:12420:0321/222543.839:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+Mar 21, 2024 22:25:44.19 [7748:12420:0321/222543.847:ERROR:checkin_request.cc(243)] Check-in request got net error: -106
+Mar 21, 2024 22:26:08.35 [7748:12420:0321/222608.351:ERROR:checkin_request.cc(243)] Check-in request got net error: -106
+Mar 21, 2024 22:26:52.04 [7748:12420:0321/222652.043:ERROR:checkin_request.cc(243)] Check-in request got net error: -106
+Mar 22, 2024 24:04:04.73 [7748:12420:0322/000404.727:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -106
+Mar 22, 2024 24:04:04.73 [7748:12420:0322/000404.737:ERROR:checkin_request.cc(243)] Check-in request got net error: -106

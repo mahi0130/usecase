@@ -1,0 +1,66 @@
+package in.co.rays.ctl;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import in.co.rays.dto.ProgressDTO;
+import in.co.rays.model.ProgressModel;
+@WebServlet("/ProgressListCtl")
+public class ProgressListCtl extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		ProgressDTO dto = new ProgressDTO();
+		ProgressModel model = new ProgressModel();
+		List list = model.search(dto);
+		req.setAttribute("List", list);
+		RequestDispatcher rd = req.getRequestDispatcher("ProgressListView.jsp");
+		rd.forward(req, resp);
+
+	}
+
+@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	String op = 	req.getParameter("operation");
+	ProgressDTO dto = null;
+	ProgressModel model = new ProgressModel();
+	if (op!= null && op.equalsIgnoreCase("search")) {
+		dto = 	new ProgressDTO();
+		dto.setDeveloperName(req.getParameter("developername"));
+		dto.setWork(req.getParameter("work"));
+		dto.setReportingDate(new Date());
+		dto.setTarget(req.getParameter("target"));
+		dto.setLastWeek(req.getParameter("lastweek"));
+		dto.setCurrentWeek(req.getParameter("currentweek"));
+			
+		}
+if (op.equalsIgnoreCase("delete")) {
+		
+		String[] ids = req.getParameterValues("ids");
+		if(ids != null && ids.length > 0) {
+		for (String id : ids) {
+			ProgressDTO  deletedto = new ProgressDTO();
+			deletedto.setId(Integer.parseInt(id));
+			model.delete(deletedto);
+			 
+			
+			
+		}}
+	
+	}
+	List  list = model.search(dto);
+	req.setAttribute("List", list);
+	RequestDispatcher rd= req.getRequestDispatcher("ProgressListView.jsp");
+	rd.forward(req, resp);
+
+
+}
+}

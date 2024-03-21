@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 21-Mar-2024, 3:11:15 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="in.co.rays.dto.ProgressDTO" table="PROGRESSDTO">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="developerName" type="java.lang.String">
+            <column name="DEVELOPERNAME" />
+        </property>
+        <property name="work" type="java.lang.String">
+            <column name="WORK" />
+        </property>
+        <property name="reportingDate" type="java.util.Date">
+            <column name="REPORTINGDATE" />
+        </property>
+        <property name="target" type="java.lang.String">
+            <column name="TARGET" />
+        </property>
+        <property name="lastWeek" type="java.lang.String">
+            <column name="LASTWEEK" />
+        </property>
+        <property name="currentWeek" type="java.lang.String">
+            <column name="CURRENTWEEK" />
+        </property>
+    </class>
+</hibernate-mapping>

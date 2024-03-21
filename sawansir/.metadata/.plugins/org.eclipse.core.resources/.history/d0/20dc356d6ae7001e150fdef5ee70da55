@@ -1,0 +1,37 @@
+package in.co.rays.ctl;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import in.co.rays.dto.ProgressDTO;
+import in.co.rays.model.ProgressModel;
+
+public class ProgressCtl extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		ProgressDTO dto = new ProgressDTO();
+		ProgressModel model = new ProgressModel();
+		
+		
+		String id = req.getParameter("id");
+		if (id != null) {
+			dto = model.findByPK(Integer.parseInt(id));
+			req.setAttribute("dto", dto);
+
+		}
+		RequestDispatcher rd = req.getRequestDispatcher("CompanyView.jsp");
+		rd.forward(req, resp);
+
+		
+		
+		
+		
+	}
+	
+
+}
